@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hop-top-vstar"
+# PEP 440 prerelease shape. release-please rewrites this on each
+# release with its own SemVer rendering ("1.0.0-alpha.1"), which
+# PEP 440 accepts and normalizes back to "1.0.0a1" -- the built
+# artifacts are named identically either way. An editable install
+# reports the spelling verbatim; tests/test_version.py accepts both.
+version = "1.0.0-alpha.0"
+description = "V* calendar and contact interchange — Python port of the Go reference implementation."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Jad Bitar" }]
+keywords = ["vstar", "icalendar", "vcard", "rfc5545", "rfc6350"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://hop.top/vstar"
+Repository = "https://github.com/hop-top/poly-vstar"
+Source = "https://github.com/hop-top/poly-vstar/tree/main/py"
+Issues = "https://github.com/hop-top/poly-vstar/issues"
+
+# The distribution slug (hop-top-vstar) is not the import name (vstar),
+# so hatchling cannot infer the package directory. Without this it
+# errors out looking for src/hop_top_vstar.
+[tool.hatch.build.targets.wheel]
+packages = ["src/vstar"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "CHANGELOG.md", "pyproject.toml"]
+
+[dependency-groups]
+dev = [
+  "mypy>=1.13",
+  "packaging>=24",
+  "pytest>=8.3",
+  "ruff>=0.7",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src", "tests"]
+strict = true

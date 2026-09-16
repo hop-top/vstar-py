@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: MIT
+
+target-version = "py311"
+line-length = 88
+src = ["src", "tests"]
+
+# src/vstar/_generated/ is rendered by tools/registry/gen.py; a lint
+# finding there is a generator bug, not something to fix in place.
+extend-exclude = ["src/vstar/_generated"]
+
+[lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "SIM", "RUF"]
