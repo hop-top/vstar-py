@@ -87,7 +87,7 @@ ship inline, the package is checked under mypy `strict`, and `py.typed`
 advertises them, so mypy and pyright see them with no `types-*`
 companion. Versions are prereleases (`1.0.0a*`, the PEP 440 form of
 `1.0.0-alpha.*`); pin an exact version until 1.0.0, spelled
-`==1.0.0-alpha.0` (pip normalizes that spelling). <!-- x-release-please-version -->
+`==1.0.0-alpha.1` (pip normalizes that spelling). <!-- x-release-please-version -->
 
 ## Usage
 

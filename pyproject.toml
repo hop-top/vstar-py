@@ -9,7 +9,7 @@ name = "hop-top-vstar"
 # PEP 440 accepts and normalizes back to "1.0.0a1" -- the built
 # artifacts are named identically either way. An editable install
 # reports the spelling verbatim; tests/test_version.py accepts both.
-version = "1.0.0-alpha.0"
+version = "1.0.0-alpha.1"
 description = "V* calendar and contact interchange — Python port of the Go reference implementation."
 readme = "README.md"
 requires-python = ">=3.11"
