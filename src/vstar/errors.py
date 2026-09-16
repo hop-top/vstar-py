@@ -104,7 +104,7 @@ class UnsupportedVersion(VstarError):
 class MissingUid(VstarError):
     """A component that requires ``UID`` has none.
 
-    Encoder-only at the codec layer in v0.1: the vCard *parser* accepts
+    Encoder-only at the codec layer: the vCard *parser* accepts
     a UID-less VCARD so adopters can recover a non-conforming document,
     and the *encoder* refuses to emit one.
     """

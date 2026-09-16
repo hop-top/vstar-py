@@ -4,7 +4,7 @@
 """The Python parity emitter for the cross-language parity harness.
 
 It takes the ``spec/`` directory as its single argument, runs the V*
-public API over every fixture in ``spec/v0.1/conformance/`` and
+public API over every fixture in ``spec/v1.0/conformance/`` and
 ``spec/behavior/``, and prints ONE JSON document to stdout.
 ``tools/parity/parity.py`` diffs this document against the Go
 reference's, key by key; any difference fails the run.
@@ -279,7 +279,7 @@ def malformed_token(path: Path, suffix: str) -> str:
     """Run a malformed fixture through the codec and report its token.
 
     Most fixtures fail at parse time. ``ErrMissingUID`` is encoder-only
-    in v0.1 -- the rfc6350 parser accepts a UID-less VCARD and the
+    -- the rfc6350 parser accepts a UID-less VCARD and the
     encoder refuses it -- so a fixture that parses is re-encoded and the
     encode failure classified instead. A fixture where both stages
     succeed is a fault.
@@ -926,7 +926,7 @@ def main(argv: Sequence[str]) -> None:
         fail("usage: parity <spec-dir>")
     spec = Path(argv[0]).resolve()
 
-    conformance = spec / "v0.1" / "conformance"
+    conformance = spec / "v1.0" / "conformance"
     behavior = spec / "behavior"
     for directory in (conformance, behavior):
         if not directory.is_dir():

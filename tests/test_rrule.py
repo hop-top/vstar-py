@@ -916,6 +916,24 @@ def test_validate_rrule_raises_and_is_not_a_boolean() -> None:
         validate_rrule("FREQ=SECONDLY")
 
 
+@pytest.mark.parametrize(
+    ("value", "detail"),
+    [
+        ("FREQ=SECONDLY", "FREQ=SECONDLY"),
+        ("FREQ=DAILY;RSCALE=GREGORIAN", "rule-part RSCALE"),
+    ],
+    ids=["freq", "rule-part"],
+)
+def test_unsupported_messages_name_the_parsing_scope(value: str, detail: str) -> None:
+    # The wording is shared by every port and names the scope, never a
+    # spec version, so it cannot go stale when the spec is re-cut.
+    with pytest.raises(UnsupportedRrule) as info:
+        parse_rrule(value)
+    assert str(info.value) == (
+        f"ErrUnsupportedRRule: rrule: {detail}: outside the RRULE parsing scope"
+    )
+
+
 def test_an_invalid_rule_renders_as_the_empty_string() -> None:
     # A rule with no FREQ renders empty rather than as a partial value
     # that would fail to re-parse.

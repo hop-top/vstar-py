@@ -38,7 +38,7 @@ def test_vcf_fails_with_its_named_sentinel_on_parse_or_encode(
 ) -> None:
     """Parse first; if it succeeds, the fixture targets an encoder sentinel.
 
-    ``ErrMissingUID`` is encoder-only in v0.1 — the parser accepts a
+    ``ErrMissingUID`` is encoder-only — the parser accepts a
     UID-less VCARD. A port that only checks the parse side passes the
     fixture silently and is wrong, so the encoder is exercised too.
     """

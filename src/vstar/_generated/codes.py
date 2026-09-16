@@ -43,7 +43,7 @@ VCARD_MISSING_REQUIRED: Final[str] = "VS043"
 #: STATUS value is outside the vocabulary RFC 5545 §3.8.1.11 scopes to the component's own type.
 STATUS_NOT_IN_VOCABULARY: Final[str] = "VS044"
 
-#: RRULE value parses but uses a feature outside the v0.2 rrule scope (FREQ=SECONDLY, RSCALE — see spec/03 §RRULE parsing scope).
+#: RRULE value parses but uses a feature outside the RRULE parsing scope (FREQ=SECONDLY, RSCALE — see spec/03 §RRULE parsing scope).
 R_RULE_UNSUPPORTED: Final[str] = "VS050"
 
 #: RRULE value is malformed per RFC 5545 §3.3.10 (missing FREQ, INTERVAL≤0, both UNTIL+COUNT, BYMONTHDAY=0, UNTIL not in form #2, etc.).

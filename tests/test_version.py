@@ -14,9 +14,9 @@ CANONICAL = re.compile(r"\d+\.\d+\.\d+(?:[ab]|rc)?\d*(?:\.dev\d+)?")
 
 
 def test_version_is_pep440() -> None:
-    # release-please writes its SemVer spelling ("1.0.0-alpha.0") into
+    # release-please writes its SemVer spelling ("X.Y.Z-alpha.N") into
     # pyproject.toml, and an editable install reports it verbatim, while
-    # a built wheel carries the normalized "1.0.0a0". Both are one PEP 440
+    # a built wheel carries the normalized "X.Y.ZaN". Both are one PEP 440
     # version: the test accepts any legal spelling and pins the canonical
     # form it normalizes to.
     try:

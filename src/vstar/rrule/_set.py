@@ -190,7 +190,7 @@ def rule_set_from_component(c: Component) -> RuleSet:
     several times and may each carry several comma-separated values;
     every value accumulates.
 
-    v0.1 recurrence sets are UTC form #2 only, so a ``VALUE=DATE`` or
+    Recurrence sets are UTC form #2 only, so a ``VALUE=DATE`` or
     ``TZID`` EXDATE/RDATE is :class:`~vstar.UnsupportedRrule`. Failing
     closed is deliberate: silently dropping an unparseable EXDATE would
     surface an occurrence the producer explicitly cancelled.
@@ -287,7 +287,7 @@ class RecurrenceId:
     This is parsing and typed access only. Applying overrides — taking a
     base component plus its RECURRENCE-ID siblings and producing the
     effective series — needs component-level semantics that sit above
-    this layer and are outside v0.1 scope.
+    this layer and are outside this package's scope.
     """
 
     #: The identified instance's original start instant — what the base

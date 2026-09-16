@@ -5,7 +5,7 @@
 Line unfolding (§3.2 -> RFC 5545 §3.1), content-line parsing including
 group prefixes (§3.3), TEXT escaping (§3.4), ``BEGIN:VCARD...END:VCARD``
 framing, and the symmetric encoder with 75-octet folding and CRLF
-terminators. ``VERSION:4.0`` is the only version accepted at v0.1.
+terminators. ``VERSION:4.0`` is the only version accepted.
 
 The two halves are deliberately asymmetric: :func:`parse` returns a
 **list** of cards, :func:`encode` takes exactly one.

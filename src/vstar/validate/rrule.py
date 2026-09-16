@@ -41,7 +41,7 @@ def check_rrule(c: Component, path: str) -> list[Diagnostic]:
             out.append(
                 diagnostic(
                     R_RULE_UNSUPPORTED,
-                    "RRULE uses a feature outside the v0.2 rrule scope "
+                    "RRULE uses a feature outside the RRULE parsing scope "
                     f"(spec/03 §RRULE parsing scope): {err}",
                     f"{path}.{_RRULE}",
                 )

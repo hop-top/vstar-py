@@ -2,7 +2,7 @@
 
 """The typed vocabulary of an RFC 5545 §3.3.10 RRULE value.
 
-The scope is the one ``spec/v0.1/03-canonicalization.md`` §RRULE
+The scope is the one ``spec/v1.0/03-canonicalization.md`` §RRULE
 parsing scope fixes. Wire spellings are normative: a port that changes
 one is broken.
 """

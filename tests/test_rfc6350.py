@@ -90,7 +90,7 @@ class TestMultiCardStreams:
 
 
 class TestUidIsEncoderOnly:
-    """``ErrMissingUID`` is an ENCODER-time sentinel in v0.1.
+    """``ErrMissingUID`` is an ENCODER-time sentinel.
 
     The parser accepts a UID-less VCARD so adopters can recover a
     non-conforming document rather than lose it; the encoder refuses to

@@ -122,8 +122,8 @@ def component_in_context(c: Component, cal: Calendar) -> bytes:
     For each property on the rule-5 allow-list carrying a ``TZID``: on
     successful resolution the value is re-emitted as UTC form #2 and the
     parameter is dropped. On failure — no matching VTIMEZONE, or one
-    outside the v0.1 subset — the value AND the ``TZID`` pass through
-    verbatim. Canonical bytes are not deterministic across calendars
+    outside the spec's VTIMEZONE subset — the value AND the ``TZID`` pass
+    through verbatim. Canonical bytes are not deterministic across calendars
     carrying different VTIMEZONE definitions in that branch; a producer
     is expected to ship coverage inside the subset.
 
@@ -263,7 +263,8 @@ def _prepare_property(p: Property, cal: Calendar) -> Property:
         pv = _nfc(prm.value)
         # Rule 11 upper-cases the VALUE argument so `VALUE=date` and
         # `VALUE=DATE` converge. General case-folding of other VALUE
-        # tokens is deferred to v0.2, so this is scoped to that branch.
+        # tokens is deferred to a later version, so this is scoped to
+        # that branch.
         if date_only and name == "VALUE":
             pv = pv.upper()
         params.append(Param(name=prm.name, value=pv))

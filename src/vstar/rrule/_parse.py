@@ -135,7 +135,7 @@ def _parse_rule_part(key: str, value: str) -> tuple[str, object]:
             return "week_start", _parse_weekday(value)
         case "RSCALE":
             # RFC 7529, non-Gregorian calendars — deferred indefinitely.
-            _unsupported(f"rule-part {key}: outside the v0.1 scope")
+            _unsupported(f"rule-part {key}: outside the RRULE parsing scope")
         case _:
             _malformed(f"unknown rule-part {key!r}")
 
@@ -147,7 +147,7 @@ def _parse_freq(v: str) -> Freq:
             return Freq(v)
         case "SECONDLY":
             # Syntactically valid, deliberately deferred: extreme expansion.
-            _unsupported(f"FREQ={v}: outside the v0.1 scope")
+            _unsupported(f"FREQ={v}: outside the RRULE parsing scope")
         case _:
             _malformed(f"invalid FREQ value {v!r}")
 

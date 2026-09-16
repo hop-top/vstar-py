@@ -6,7 +6,7 @@ from __future__ import annotations
 
 __all__ = ["SUPPORTED_VERSION", "is_text_property"]
 
-#: The only iCalendar ``VERSION`` value V* honors at v0.1.
+#: The only iCalendar ``VERSION`` value V* honors.
 SUPPORTED_VERSION = "2.0"
 
 #: Property names whose values are TEXT-typed per RFC 5545 §3.3.11 /

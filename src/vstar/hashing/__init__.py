@@ -10,7 +10,7 @@ the byte agreement underneath it.
 
 The ``sha256:`` prefix is part of the value, not decoration. It exists so
 a future ``sha3-256:`` or ``blake3:`` is expressible without ambiguity;
-v0.1 emits only ``sha256:``.
+V* emits only ``sha256:``.
 
 **Hash exclusion.** Rule 7 excludes ``X-VSTAR-HASH`` from the bytes its
 own value is computed over — otherwise the stored hash would feed back

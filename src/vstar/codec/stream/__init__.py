@@ -69,7 +69,7 @@ __all__ = [
 
 #: The default PRODID, matching the batch encoder's so a streamed
 #: calendar and a batch-encoded one agree byte for byte.
-_DEFAULT_PROD_ID = "-//hop-top//vstar-go v0.1.0//EN"
+_DEFAULT_PROD_ID = "-//hop-top//vstar//EN"
 
 _KW_BEGIN = "BEGIN"
 _KW_END = "END"

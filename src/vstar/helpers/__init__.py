@@ -102,7 +102,7 @@ __all__ = [
 _EnumT = TypeVar("_EnumT", bound=StrEnum)
 
 #: The PRODID a calendar gets when the caller supplies none.
-_DEFAULT_PROD_ID = "-//hop-top//vstar-go v0.1.0//EN"
+_DEFAULT_PROD_ID = "-//hop-top//vstar//EN"
 
 _PROP_UID = "UID"
 _PROP_DTSTAMP = "DTSTAMP"

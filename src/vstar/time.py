@@ -196,7 +196,7 @@ def parse_time_with_tzid(s: str, tzid: str, cal: Calendar) -> datetime | None:
     - ``tzid`` is empty;
     - ``cal`` carries no VTIMEZONE whose ``TZID`` matches (comparison is
       case-sensitive: TZIDs are opaque identifiers per RFC 5545 §3.2.19);
-    - the matching VTIMEZONE falls outside the spec's v0.1 subset —
+    - the matching VTIMEZONE falls outside the spec's VTIMEZONE subset —
       multiple STANDARD or DAYLIGHT children, a missing or malformed
       offset or ``DTSTART``, or an RRULE the subset does not accept;
     - ``s`` is not form #1.
@@ -259,7 +259,7 @@ def _load_tz_rules(tz: Component) -> _TzRuleSet | None:
     if not standards and not daylights:
         return None
     # Split-zone histories (multiple STANDARD or DAYLIGHT entries) are
-    # outside v0.1.
+    # outside the spec's VTIMEZONE subset.
     if len(standards) > 1 or len(daylights) > 1:
         return None
 

@@ -1,10 +1,10 @@
 # V* conformance — `hop-top-vstar` (Python)
 
 This is the self-certification
-[spec/v0.1/05-conformance.md](https://github.com/hop-top/poly-vstar/blob/main/spec/v0.1/05-conformance.md#self-certification)
+[spec/v1.0/05-conformance.md](https://github.com/hop-top/poly-vstar/blob/main/spec/v1.0/05-conformance.md#self-certification)
 asks every implementation to publish. Until a formal conformance suite
-exists (planned for v0.2) it is the honor-system substitute, and for a
-port most of it is a statement of which gates are green.
+exists (planned for a later version) it is the honor-system substitute,
+and for a port most of it is a statement of which gates are green.
 
 ## Spec revision
 
@@ -30,7 +30,7 @@ merely stable under this port's own round trip.
 ## Conformance criteria
 
 Criteria are numbered per
-[spec/v0.1/05-conformance.md](https://github.com/hop-top/poly-vstar/blob/main/spec/v0.1/05-conformance.md).
+[spec/v1.0/05-conformance.md](https://github.com/hop-top/poly-vstar/blob/main/spec/v1.0/05-conformance.md).
 
 | # | Criterion | Status |
 |---|---|---|
@@ -149,7 +149,7 @@ extension scoping — the parity gate would fail on any of them.
 The corpus run is the artifact. Rather than pin a handful of golden
 documents here, where they would drift from the corpus they were copied
 out of, this port is certified by the gates above over the whole of
-`spec/v0.1/conformance/` and `spec/behavior/`:
+`spec/v1.0/conformance/` and `spec/behavior/`:
 
 - **Hashes** — the parity emitter recomputes the content hash of every
   parseable fixture and compares it against that fixture's committed

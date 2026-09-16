@@ -16,7 +16,7 @@ from ...types import Card, Kind, Param, Property
 
 __all__ = ["SUPPORTED_VERSION", "parse", "parse_content_line"]
 
-#: The only vCard ``VERSION`` value accepted at v0.1.
+#: The only vCard ``VERSION`` value accepted.
 SUPPORTED_VERSION = "4.0"
 
 

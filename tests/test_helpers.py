@@ -225,8 +225,13 @@ def test_constructor_stamps_a_verifying_hash(build: object) -> None:
 
 
 def test_new_calendar_defaults_the_prod_id() -> None:
-    """An empty PRODID takes the port's default, never an empty value."""
-    assert new_calendar("").prod_id == "-//hop-top//vstar-go v0.1.0//EN"
+    """An empty PRODID takes the default, never an empty value.
+
+    The default is version-free and language-free: PRODID is part of
+    the hashed canonical form, so it must not change across releases or
+    differ between ports.
+    """
+    assert new_calendar("").prod_id == "-//hop-top//vstar//EN"
     assert new_calendar("-//X//Y//EN").prod_id == "-//X//Y//EN"
 
 

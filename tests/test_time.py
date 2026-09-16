@@ -302,7 +302,7 @@ def test_subset_accepts_a_seconds_bearing_offset() -> None:
 
 
 def test_subset_rejects_multiple_standard_children() -> None:
-    """Split-zone histories are outside v0.1."""
+    """Split-zone histories are outside the spec's VTIMEZONE subset."""
     cal = _tz(
         _child("STANDARD", offset_to="-0500", offset_from="-0500"),
         _child("STANDARD", offset_to="-0600", offset_from="-0600"),

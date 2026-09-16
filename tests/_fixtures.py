@@ -2,7 +2,7 @@
 
 """Shared conformance-corpus loader.
 
-The corpus is authored at ``spec/v0.1/conformance/``, two levels above
+The corpus is authored at ``spec/v1.0/conformance/``, two levels above
 ``py/``. Paths resolve from this file's own location rather than from
 the working directory, so the loader works whichever directory pytest
 is invoked from.
@@ -17,8 +17,8 @@ from pathlib import Path
 #: Absolute path to ``spec/``.
 SPEC_DIR = Path(__file__).resolve().parents[2] / "spec"
 
-#: Absolute path to ``spec/v0.1/conformance/``.
-CONFORMANCE_DIR = SPEC_DIR / "v0.1" / "conformance"
+#: Absolute path to ``spec/v1.0/conformance/``.
+CONFORMANCE_DIR = SPEC_DIR / "v1.0" / "conformance"
 
 #: Absolute path to ``spec/behavior/`` — the language-agnostic tables
 #: stating what a conformant implementation *does*, as opposed to the

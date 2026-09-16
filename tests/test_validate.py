@@ -30,6 +30,7 @@ from vstar._generated.codes import (
     INTEGER_OUT_OF_DOMAIN,
     MISSING_DTSTAMP,
     MISSING_UID,
+    R_RULE_UNSUPPORTED,
     STANDARD_PROPERTIES,
     STATUS_NOT_IN_VOCABULARY,
     SUPERSESSION_MISSING_PROPS,
@@ -297,6 +298,21 @@ def test_transp_outside_vocabulary_is_flagged_off_a_vevent() -> None:
         ("VCALENDAR.VTODO[uid=todo-clean-completed].TRANSP", "error")
     ]
     assert validate(_with_value("clean_vtodo_completed", "TRANSP", "OPAQUE")) == []
+
+
+def test_unsupported_rrule_message_names_the_parsing_scope() -> None:
+    # VS050's text is the one wording every port emits: it names the
+    # RRULE parsing scope and the spec section, never a spec version.
+    cal = _with_value("clean_vtodo_completed", "RRULE", "FREQ=SECONDLY")
+    hits = [d for d in validate(cal) if d.code == R_RULE_UNSUPPORTED]
+    assert [(d.path, d.severity) for d in hits] == [
+        ("VCALENDAR.VTODO[uid=todo-clean-completed].RRULE", "warning")
+    ]
+    assert hits[0].message == (
+        "RRULE uses a feature outside the RRULE parsing scope "
+        "(spec/03 §RRULE parsing scope): "
+        "ErrUnsupportedRRule: rrule: FREQ=SECONDLY: outside the RRULE parsing scope"
+    )
 
 
 @pytest.mark.parametrize("name", _INTEGER_PROPS)

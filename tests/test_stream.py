@@ -255,12 +255,19 @@ def test_card_encoder_refuses_use_after_close() -> None:
 
 
 def test_closing_without_encoding_emits_an_empty_calendar() -> None:
-    """The header is still flushed, so the output is legal."""
+    """The header is still flushed, so the output is legal.
+
+    The default PRODID is pinned byte for byte: it survives
+    canonicalization and is hashed, so it is version-free and identical
+    in every port.
+    """
     sink = io.BytesIO()
     enc = VCalendarEncoder(sink)
     enc.close()
     out = sink.getvalue()
-    assert out.startswith(b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:")
+    assert out.startswith(
+        b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//hop-top//vstar//EN\r\n"
+    )
     assert out.endswith(b"END:VCALENDAR\r\n")
     assert rfc5545.parse(out).components == []
 
